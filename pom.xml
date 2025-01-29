@@ -27,10 +27,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- MySQL Driver Dependency -->
+        <!-- MySQL Driver Dependency with version specified -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.29</version>  <!-- Make sure this version matches your MySQL version -->
         </dependency>
 
         <!-- Spring Boot Test Dependency (for unit testing) -->
