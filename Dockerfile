@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy the JAR file into the container
 COPY target/myapp.jar /app/myapp.jar
 
-# Expose the port that your Spring Boot app will run on
-EXPOSE 8080
+# Expose the new port that your Spring Boot app will run on
+EXPOSE 8081
 
-# Command to run the app
-ENTRYPOINT ["java", "-jar", "/app/myapp.jar"]
+# Command to run the app (ensure Spring Boot listens on port 8081)
+ENTRYPOINT ["java", "-Dserver.port=8081", "-jar", "/app/myapp.jar"]
