@@ -1,0 +1,35 @@
+pipeline{
+agent { label 'jenkins-agent' }
+
+tools{
+ jdk 'java17'
+maven 'maven3'
+}
+
+stages{
+
+stage("clean up work space"){
+steps{
+cleanWs()}
+}
+
+stage("scm"){
+steps{
+git branch "main",credentialsid:'github',url:'https://github.com/yaswanthkumarch/pathmapingspring_backend'
+}
+}
+stage("build application"){
+steps{
+sh "mvn clean package"
+}
+}
+stage("test application"){
+steps{
+sh "mvn test"
+}
+}
+
+
+
+
+}
